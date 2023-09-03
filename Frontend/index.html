@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artist application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h2>Artist Application</h2></header>
+    <button id="create-btn">CREATE ARTIST</button>
+    <dialog id="create-dialog">
+      <form action="" id="create-form">
+        <label for="newName">Name</label>
+        <input type="text" name="newName" id="newName" />
+        <label for="newBirthdate">Birthdate</label>
+        <input type="date" name="newBirthdate" id="newBirthdate" />
+        <label for="newActive">Active since</label>
+        <input type="text" name="newActive" id="newActive" />
+        <label for="newGenre">Genre</label>
+        <input type="text" name="newGenre" id="newGenre" />
+        <br />
+        <label for="newLabel"></label>
+        <input type="text" name="newLabel" id="newLabel" />
+        <label for="newImg">Image</label>
+        <input type="url" name="newImg" id="newImg" />
+        <label for="newURL">Website</label>
+        <input type="url" name="newURL" id="newURL" />
+        <label for="newDiscription"></label>
+        <input type="text" name="newDiscription" id="newDiscription" />
+        <br />
+        <button id="newArtist-btn">CREATE NEW ARTIST</button>
+      </form>
+    </dialog>
+    <section id="grid">
+      <dialog id="dialog-artist">
+        <div id="dialog-grid">
+          <div id="dialog-content-left">
+            <h2 id="dialog-name">name</h2>
+            <h3 id="dialog-birthdate">birthdate</h3>
+            <p id="dialog-activeSince">activeSince</p>
+            <p id="dialog-genres">genres</p>
+            <p id="dialog-labels">labels</p>
+          </div>
+          <div id="dialog-content-right">
+            <img id="dialog-image" src="" alt="" />
+          </div>
+        </div>
+        <p id="dialog-website">website</p>
+        <p id="dialog-shortDescription">shortDescription</p>
+        <button id="btn-close">CLOSE</button>
+      </dialog>
+    </section>
+
+    <dialog id="update-dialog">
+      <form action="" id="update-form">
+        <label for="updatedName">Name</label>
+        <input type="text" name="updatedName" id="updatedName" />
+        <label for="updBirthdate">Birthdate</label>
+        <input type="date" name="updBirthdate" id="updBirthdate" />
+        <label for="updatedActive">Active since</label>
+        <input type="text" name="updatedActive" id="updatedActive" />
+        <label for="updatedGenre">Genre</label>
+        <input type="text" name="updatedGenre" id="updatedGenre" />
+        <br />
+        <label for="updatedLabel"></label>
+        <input type="text" name="updatedLabel" id="updatedLabel" />
+        <label for="updatedImg">Image</label>
+        <input type="url" name="updatedImg" id="updatedImg" />
+        <label for="updatedURL">Website</label>
+        <input type="url" name="updatedURL" id="updatedURL" />
+        <label for="updatedDiscription"></label>
+        <input type="text" name="updatedDiscription" id="updatedDiscription" />
+        <br />
+        <button id="updateAritst-btn">UPDATE ARTIST</button>
+      </form>
+    </dialog>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

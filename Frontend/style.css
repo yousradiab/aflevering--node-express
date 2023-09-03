@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  text-align: center;
+}
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100vw;
+}
+
+.artist-grid {
+  margin: 20px;
+  padding-bottom: 20px;
+  border: 2px black solid;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.artist-grid img {
+  height: 160px;
+}
