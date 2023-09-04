@@ -3,33 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artist application</title>
+    <title>ARTIST APP</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header><h2>Artist Application</h2></header>
+    <header>
+      <h2 id="website-header">ARTIST APP🎵</h2>
+      <a id="home" href="#home">🏠Home Page</a>
+      <a id="favorites" href="#favorites">❤️ Artists</a>
+    </header>
+
+    <select id="select-sort-by">
+      <option value="name">Name(a-z)</option>
+      <option value="active">Active since</option>
+    </select>
+
+    <input type="search" name="search" id="search" placeholder="search" />
     <button id="create-btn">CREATE ARTIST</button>
     <dialog id="create-dialog">
       <form action="" id="create-form">
         <label for="newName">Name</label>
-        <input type="text" name="newName" id="newName" />
+        <input type="text" name="newName" id="newName" placeholder="Name" />
         <label for="newBirthdate">Birthdate</label>
-        <input type="date" name="newBirthdate" id="newBirthdate" />
+        <input type="date" name="newBirthdate" id="newBirthdate" placeholder="Birthdate" />
         <label for="newActive">Active since</label>
-        <input type="text" name="newActive" id="newActive" />
+        <input type="text" name="newActive" id="newActive" placeholder="Active since" />
         <label for="newGenre">Genre</label>
-        <input type="text" name="newGenre" id="newGenre" />
+        <input type="text" name="newGenre" id="newGenre" placeholder="Genres" />
         <br />
         <label for="newLabel"></label>
-        <input type="text" name="newLabel" id="newLabel" />
+        <input type="text" name="newLabel" id="newLabel" placeholder="Labels" />
         <label for="newImg">Image</label>
-        <input type="url" name="newImg" id="newImg" />
+        <input type="url" name="newImg" id="newImg" placeholder="Insert URL" />
         <label for="newURL">Website</label>
-        <input type="url" name="newURL" id="newURL" />
+        <input type="url" name="newURL" id="newURL" placeholder="Insert URL" />
         <label for="newDiscription"></label>
-        <input type="text" name="newDiscription" id="newDiscription" />
+        <input type="text" name="newDiscription" id="newDiscription" placeholder="Short description" />
         <br />
         <button id="newArtist-btn">CREATE NEW ARTIST</button>
+        <button type="button" id="create-cancel-btn">CANCEL</button>
       </form>
     </dialog>
     <section id="grid">
@@ -55,25 +70,38 @@
     <dialog id="update-dialog">
       <form action="" id="update-form">
         <label for="updatedName">Name</label>
-        <input type="text" name="updatedName" id="updatedName" />
+        <input type="text" name="updatedName" id="updatedName" placeholder="Name" />
+        <br />
         <label for="updBirthdate">Birthdate</label>
-        <input type="date" name="updBirthdate" id="updBirthdate" />
+        <input type="date" name="updBirthdate" id="updBirthdate" placeholder="Birthdate" />
+        <br />
         <label for="updatedActive">Active since</label>
-        <input type="text" name="updatedActive" id="updatedActive" />
+        <input type="text" name="updatedActive" id="updatedActive" placeholder="Active since" />
+        <br />
         <label for="updatedGenre">Genre</label>
-        <input type="text" name="updatedGenre" id="updatedGenre" />
+        <input type="text" name="updatedGenre" id="updatedGenre" placeholder="Genres" />
         <br />
         <label for="updatedLabel"></label>
-        <input type="text" name="updatedLabel" id="updatedLabel" />
+        <input type="text" name="updatedLabel" id="updatedLabel" placeholder="Labels" />
+        <br />
         <label for="updatedImg">Image</label>
-        <input type="url" name="updatedImg" id="updatedImg" />
+        <input type="url" name="updatedImg" id="updatedImg" placeholder="Insert URL" />
+        <br />
         <label for="updatedURL">Website</label>
-        <input type="url" name="updatedURL" id="updatedURL" />
-        <label for="updatedDiscription"></label>
-        <input type="text" name="updatedDiscription" id="updatedDiscription" />
+        <input type="url" name="updatedURL" id="updatedURL" placeholder="Insert URL" />
+        <br />
+        <label for="updatedDiscription">Short descripton</label>
+        <input type="text" name="updatedDiscription" id="updatedDiscription" placeholder="Short descripton" />
         <br />
         <button id="updateAritst-btn">UPDATE ARTIST</button>
+        <button type="button" id="cancel-btn-update">CANCEL</button>
       </form>
+    </dialog>
+
+    <dialog id="delete-dialog">
+      <p>Are you sure you want to delete</p>
+      <button id="btn-confirm-delete">DELETE</button>
+      <button id="btn-cancel-delete">CANCEL</button>
     </dialog>
     <script src="main.js" type="module"></script>
   </body>

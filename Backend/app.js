@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import fs from "fs/promises";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
@@ -51,3 +51,20 @@ app.put("/artists/:id", async (request, response) => {
   fs.writeFile("./artists.json", JSON.stringify(artists));
   response.json(artists);
 });
+
+app.delete("/artists/:id", async (request, response) => {
+  const id = request.params.id;
+  const data = await fs.readFile("./artists.json");
+  const artists = JSON.parse(data);
+
+  let artistToDelete = artists.find((artist) => artist.id === id);
+  if (!artistToDelete) {
+    return;
+  }
+  let postionOfArtist = artists.indexOf(artistToDelete);
+
+  artists.splice(postionOfArtist, 1);
+  fs.writeFile("./artists.json", JSON.stringify(artists));
+  response.json(artists);
+});
+

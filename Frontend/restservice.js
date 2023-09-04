@@ -1,9 +1,9 @@
 "use strict";
-import { showArtists, artists, selectedArtist } from "./main.js";
+import { artists, selectedArtist, updateGrid } from "./main.js";
 const endpoint = "http://localhost:3333";
 
 export async function getArtists() {
-  const response = await fetch("../backend/artists.json");
+  const response = await fetch(`${endpoint}/artists`);
   const data = await response.json();
   return data;
 }
@@ -31,7 +31,7 @@ export async function createArtist(event) {
     },
   });
   if (response.ok) {
-    showArtists(artists);
+    updateGrid();
     alert("NEW ARTIST CREATED!");
   }
 }
@@ -59,7 +59,17 @@ export async function updateArtist(event) {
     },
   });
   if (response.ok) {
-    showArtists(artists);
+    updateGrid();
     alert("ARTIST UPDATED!");
+  }
+}
+
+export async function deleteArtist(id) {
+  const response = await fetch(`${endpoint}/artists/${id}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    artists = await getArtists(`${endpoint}/artists`);
+    updateGrid();
   }
 }
