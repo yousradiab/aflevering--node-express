@@ -1,6 +1,6 @@
 "use strict";
 import { artists, selectedArtist, updateGrid } from "./main.js";
-const endpoint = "http://localhost:3333";
+const endpoint = "http://localhost:4333";
 
 export async function getArtists() {
   const response = await fetch(`${endpoint}/artists`);
@@ -13,14 +13,14 @@ export async function createArtist(event) {
   const form = event.target;
   const name = form.newName.value;
   const activeSince = form.newActive.value;
-  const newBirthdate = form.newBirthdate.value;
-  const genre = form.newGenre.value;
-  const label = form.newLabel.value;
+  const birthdate = form.newBirthdate.value;
+  const genres = form.newGenre.value;
+  const labels = form.newLabel.value;
   const image = form.newImg.value;
   const website = form.newURL.value;
-  const description = form.newDiscription.value;
+  const shortDescription = form.newDiscription.value;
 
-  const newArtist = { name, activeSince, newBirthdate, genre, label, image, website, description };
+  const newArtist = { name, activeSince, birthdate, genres, labels, image, website, shortDescription };
   console.log(newArtist);
   const artistJson = JSON.stringify(newArtist);
   const response = await fetch(`${endpoint}/artists`, {
@@ -40,15 +40,15 @@ export async function updateArtist(event) {
   event.preventDefault();
   const form = event.target;
   const name = form.updatedName.value;
-  const birhdate = form.updBirthdate.value;
+  const birthdate = form.updBirthdate.value;
   const activeSince = form.updatedActive.value;
-  const genre = form.updatedGenre.value;
-  const label = form.updatedLabel.value;
+  const genres = form.updatedGenre.value;
+  const labels = form.updatedLabel.value;
   const image = form.updatedImg.value;
   const website = form.updatedURL.value;
-  const description = form.updatedDiscription.value;
+  const shortDescription = form.updatedDiscription.value;
 
-  const updatedArtist = { name, birhdate, activeSince, genre, label, image, website, description };
+  const updatedArtist = { name, birthdate, activeSince, genres, labels, image, website, shortDescription };
   console.log(updateArtist);
   const upArtistJson = JSON.stringify(updatedArtist);
   const response = await fetch(`${endpoint}/artists/${selectedArtist.id}`, {

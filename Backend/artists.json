@@ -92,9 +92,10 @@
     "name": "Lady Gaga",
     "birthdate": "1986-03-28",
     "activeSince": "2001",
-    "genres": ["Pop", "Dance", "Electronic"],
-    "labels": ["Interscope Records"],
+    "genres": "Pop,Dance,Electronic",
+    "labels": "Interscope Records",
     "website": "https://www.ladygaga.com",
-    "image": "https://www.byrdie.com/thmb/CrSNRr-sIxcSYEGJm2w1_EtpRYw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ladygagacloudnails-fbddc54de288488d968b69cbfa4c8900.png"
+    "image": "https://www.byrdie.com/thmb/CrSNRr-sIxcSYEGJm2w1_EtpRYw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ladygagacloudnails-fbddc54de288488d968b69cbfa4c8900.png",
+    "shortDescription": "Lady Gaga is an American singer-songwriter, performance artist and actress,"
   }
 ]

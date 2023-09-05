@@ -4,7 +4,7 @@ import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 
 const app = express();
-const port = 3333;
+const port = 4333;
 
 app.use(express.json());
 app.use(cors());
@@ -14,6 +14,22 @@ app.get("/artists", async (request, response) => {
   const artists = JSON.parse(data);
   response.json(artists);
 });
+
+// Get one artist
+app.get("/artists/:id", async (request, response) => {
+  const id = request.params.id;
+  const data = await fs.readFile("./artists.json");
+  const artists = JSON.parse(data);
+  const result = artists.find((artist) => artist.id === id);
+  console.log(result);
+
+  if (!result) {
+    response.status(404).json({ error: "Artist not found" });
+  } else {
+    response.json(result);
+  }
+});
+
 
 app.post("/artists", async (request, response) => {
   const newArtist = request.body;
@@ -29,7 +45,7 @@ app.post("/artists", async (request, response) => {
 });
 
 app.listen(port, () => {
-  console.log("server started on 3333");
+  console.log(`server started on ${port}`);
 });
 
 app.put("/artists/:id", async (request, response) => {
@@ -47,7 +63,7 @@ app.put("/artists/:id", async (request, response) => {
   artistToUpdate.genres = body.genres;
   artistToUpdate.labels = body.labels;
   artistToUpdate.website = body.website;
-  artistToUpdate.website = body.shortDescription;
+  artistToUpdate.shortDescription = body.shortDescription;
   fs.writeFile("./artists.json", JSON.stringify(artists));
   response.json(artists);
 });
@@ -67,4 +83,3 @@ app.delete("/artists/:id", async (request, response) => {
   fs.writeFile("./artists.json", JSON.stringify(artists));
   response.json(artists);
 });
-
