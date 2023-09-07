@@ -9,6 +9,7 @@ const port = 4333;
 app.use(express.json());
 app.use(cors());
 
+// Get the list of artists
 app.get("/artists", async (request, response) => {
   const data = await fs.readFile("./artists.json");
   const artists = JSON.parse(data);
@@ -31,6 +32,7 @@ app.get("/artists/:id", async (request, response) => {
 });
 
 
+// Create one artist with unique id
 app.post("/artists", async (request, response) => {
   const newArtist = request.body;
   newArtist.id = uuidv4();
@@ -48,6 +50,7 @@ app.listen(port, () => {
   console.log(`server started on ${port}`);
 });
 
+// Update artist
 app.put("/artists/:id", async (request, response) => {
   const id = request.params.id;
   console.log(id);
@@ -68,6 +71,7 @@ app.put("/artists/:id", async (request, response) => {
   response.json(artists);
 });
 
+// Delete artist
 app.delete("/artists/:id", async (request, response) => {
   const id = request.params.id;
   const data = await fs.readFile("./artists.json");

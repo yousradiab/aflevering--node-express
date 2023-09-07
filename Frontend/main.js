@@ -2,11 +2,14 @@
 import { getArtists, createArtist, updateArtist, deleteArtist } from "./restservice.js";
 
 window.addEventListener("load", initApp);
+
+// Globale varibaler
 let artists;
 export let selectedArtist;
 let favoriteList = [];
 let view = "home";
 
+// start app funktion
 async function initApp() {
   artists = await getArtists();
   showArtists(artists);
@@ -17,6 +20,7 @@ async function initApp() {
   document.querySelector("#favorites").addEventListener("click", goToLikes);
 }
 
+// funktion til DOM-manipulation
 export function showArtists(artists) {
   document.querySelector("#grid").innerHTML = "";
   for (const artist of artists) {
@@ -39,6 +43,7 @@ export function showArtists(artists) {
 </article>    
     `
     );
+    // tilføje klassen heart til favoritlisten
     const heartButton = document.querySelector("article:last-child .heart");
     if (favoriteList.find((a) => a.id === artist.id)) {
       console.log(true);
@@ -46,11 +51,13 @@ export function showArtists(artists) {
     } else {
       console.log(false);
     }
-
+    // Click events til at åbne, slette og like artister.
     document.querySelector("article:last-child .update-btn").addEventListener("click", () => updateArtistClicked(artist));
     document.querySelector("article:last-child .delete-btn").addEventListener("click", () => deleteArtistClicked(artist.id));
     document.querySelector("article:last-child .heart").addEventListener("click", () => favoriteArtists(artist, heartButton));
   }
+
+  // Cancel knapper der kan lukke en åben artist dialog.
   document.querySelector("#create-cancel-btn").addEventListener("click", closeDialog);
   document.querySelector("#cancel-btn-update").addEventListener("click", closeDialog);
   document.querySelector("#btn-cancel-delete").addEventListener("click", closeDialog);
@@ -61,6 +68,7 @@ export function showArtists(artists) {
   });
 }
 
+// funtion til at opdatere visning af favoritlisten og home-view.
 export function updateGrid() {
   switch (view) {
     case "home":
@@ -116,6 +124,7 @@ function closeDialog() {
   document.querySelector("#delete-dialog").close();
 }
 
+// funktion der vælger, hvad der skal sorteres efter.
 async function chooseSort() {
   artists = await getArtists();
   let sortValue = document.querySelector("#select-sort-by").value;
@@ -136,15 +145,16 @@ async function chooseSort() {
       break;
   }
 }
-
+// alfabetisk sortering af navne
 function sortbyName(a, b) {
   return a.name.localeCompare(b.name);
 }
-
+// sortering efter aktivitet
 function sortbyActive(a, b) {
   return a.activeSince - b.activeSince;
 }
 
+// filtrer til brug for søgning efter artist
 function search(searchValue) {
   console.log(searchValue);
   let searchArtist = artists.filter((artist) => artist.name.toLowerCase().includes(searchValue.toLowerCase()));

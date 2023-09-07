@@ -40,6 +40,7 @@ header a {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* GRID STYLING */
@@ -47,7 +48,7 @@ header a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 98vw;
-  margin-top: 73px;
+  margin-top: 52px;
 }
 
 .artist-grid {
@@ -56,6 +57,14 @@ header a {
   border: 2px black solid;
   border-radius: 4px;
   text-align: center;
+}
+
+.artist-grid {
+  border: 0px solid rgba(255, 255, 255, 0.07);
+  border-radius: 2%;
+  background-color: rgba(255, 255, 255, 0.686);
+  backdrop-filter: blur(13px);
+  box-shadow: rgba(0, 0, 0, 0.89) 0px 0px 76px -1px;
 }
 .dim {
   filter: brightness(30%);
@@ -103,9 +112,12 @@ header a {
 }
 
 #select-sort-by {
-  padding: 5px;
+  padding: 7px;
   margin: 10px;
   font-size: 16px;
+  background: rgb(228, 225, 225);
+  cursor: pointer;
+  border-radius: 6px;
 }
 
 #search,
@@ -117,15 +129,26 @@ header a {
   font-size: 16px;
 }
 
+#create-btn {
+  background: #a599dd;
+  color: #000000;
+  font-weight: 500;
+  transform: translate(2%);
+  cursor: pointer;
+}
+
 /* Dialog styling */
 
 #update-dialog {
   padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
   height: 350px;
   width: 350px;
+  border: 11px solid rgba(255, 255, 255, 0.072);
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255, 0.685);
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 76px -1px rgba(0, 0, 0, 0.89);
 }
 
 .dim {
@@ -138,9 +161,30 @@ header a {
 }
 
 #create-dialog {
-  background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   align-items: center;
+  border: 11px solid rgba(255, 255, 255, 0.072);
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255, 0.685);
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 76px -1px rgba(0, 0, 0, 0.89);
+}
+
+#delete-dialog {
+  border: 11px solid rgba(255, 255, 255, 0.072);
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255, 0.685);
+  backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0px 0px 76px -1px rgba(0, 0, 0, 0.89);
+  -moz-box-shadow: 0px 0px 76px -1px rgba(0, 0, 0, 0.89);
+  box-shadow: 0px 0px 76px -1px rgba(0, 0, 0, 0.89);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+input {
+  margin: 10px 0;
 }
