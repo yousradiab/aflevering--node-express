@@ -2,10 +2,10 @@
   "name": "aflevering--node-express",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "routes.js",
   "type": "module",
   "scripts": {
-    "start": "node -- watch app.js"
+    "start": "node -- watch routes.js"
   },
   "keywords": [],
   "author": "",
