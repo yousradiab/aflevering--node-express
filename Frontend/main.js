@@ -1,9 +1,10 @@
 "use strict";
 import { getArtists, createArtist, updateArtist, deleteArtist } from "./restservice.js";
-
+export { artists };
 window.addEventListener("load", initApp);
 
 // Globale varibaler
+
 let artists;
 export let selectedArtist;
 let favoriteList = [];
@@ -164,7 +165,6 @@ function search(searchValue) {
   showArtists(searchArtist);
 }
 
-
 // tilføj og fjern kunster fra favoritlisten
 function favoriteArtists(artist, heartButton) {
   if (favoriteList.includes(artist)) {
@@ -178,5 +178,3 @@ function favoriteArtists(artist, heartButton) {
   }
   console.log(favoriteList);
 }
-
-export { artists };

@@ -2,7 +2,6 @@
 import { artists, selectedArtist, updateGrid } from "./main.js";
 const endpoint = "http://localhost:4333";
 
-
 // funktion der henter listen med alle artister
 export async function getArtists() {
   const response = await fetch(`${endpoint}/artists`);
@@ -68,7 +67,7 @@ export async function updateArtist(event) {
   }
 }
 
-// sletning af artist og opdatering af listen der vises. 
+// sletning af artist og opdatering af listen der vises.
 export async function deleteArtist(id) {
   const response = await fetch(`${endpoint}/artists/${id}`, {
     method: "DELETE",
