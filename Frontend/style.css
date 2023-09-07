@@ -83,6 +83,7 @@ header a {
   background-color: white;
 }
 
+/* STYLING AF VIEWS */
 #favorites::before {
   font-size: 26px;
   margin-left: 89%;

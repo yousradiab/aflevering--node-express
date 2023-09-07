@@ -68,7 +68,7 @@ export function showArtists(artists) {
   });
 }
 
-// funtion til at opdatere visning af favoritlisten og home-view.
+// funktion til at opdatere visning af favoritlisten og home-view.
 export function updateGrid() {
   switch (view) {
     case "home":
@@ -82,12 +82,14 @@ export function updateGrid() {
   }
 }
 
+// Den fulde liste vises ved at ændre "view" til home
 function goHome() {
   document.querySelector("#grid").innerHTML = "";
   view = "home";
   updateGrid();
 }
 
+// Favoritlisten vises ved at ændre "view" til favorites
 function goToLikes() {
   document.querySelector("#grid").innerHTML = "";
   view = "favorites";
@@ -113,6 +115,7 @@ function updateArtistClicked(artist) {
   document.querySelector("#update-form").addEventListener("submit", updateArtist);
 }
 
+// visning af delee dialog og event til delete knap.
 function deleteArtistClicked(id) {
   document.querySelector("#delete-dialog").showModal();
   document.querySelector("#btn-confirm-delete").addEventListener("click", () => deleteArtist(id));
@@ -161,6 +164,8 @@ function search(searchValue) {
   showArtists(searchArtist);
 }
 
+
+// tilføj og fjern kunster fra favoritlisten
 function favoriteArtists(artist, heartButton) {
   if (favoriteList.includes(artist)) {
     const position = favoriteList.indexOf(artist);
